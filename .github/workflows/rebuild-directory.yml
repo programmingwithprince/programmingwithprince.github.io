@@ -2,23 +2,23 @@ name: Auto Rebuild Tool Directory
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at midnight UTC
-  workflow_dispatch:      # Allows manual one-click trigger in GitHub Actions tab
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - 'template.html'
-      - 'build.js'
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,9 +30,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check generated files
+        run: |
+          ls -la index.html || echo "index.html was not created"
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-refresh active tools directory [skip ci]" && git push)
+          git status
+          git diff --staged --quiet || (git commit -m "Auto-refresh active tools directory [skip ci]" && git push)
