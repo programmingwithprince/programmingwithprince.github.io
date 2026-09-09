@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince's Developer Tools & Utility Directory</title>
+  <meta name="description" content="Explore open-source utilities, web apps, formatters, and developer tools built and hosted on GitHub Pages.">
+  <meta name="robots" content="index, follow">
+  
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-hover: #1f2937;
+      --border: #374151;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --tag-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .search-box {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: var(--card-hover);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .card-footer {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Developer Utilities & Tools</h1>
+      <p class="subtitle">A live hub of open-source utilities and tools deployed on tools.domain.xyz.</p>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search utilities by name or keyword..." oninput="filterTools()">
+      </div>
+    </header>
+
+    <main class="tools-grid" id="toolList">
+      
+        <a class="tool-card" href="https://tools.yourdomain.xyz/File-Sharing/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">File Sharing</h2>
+            </div>
+            <p class="card-desc">File Sharing project! This repository provides a simple and efficient way to share files over a network using Flask. Whether you're working on a team project or need to transfer files between devices, this tool has got you covered.</p>
+            <div class="tags"><span class="tag">CSS</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/programmingwithprince/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Programmingwithprince</h2>
+            </div>
+            <p class="card-desc">Web-based developer utility and open-source project.</p>
+            <div class="tags"><span class="tag">HTML</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/Keep-my-Screen-Wake-Up/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Keep My Screen Wake Up</h2>
+            </div>
+            <p class="card-desc">Do you get frustrated when your device screen turns off while you're downloading games, reading a long PDF, or watching static content? Worry no more! Keep My Screen Awake is a simple web app designed to prevent your screen from dimming or locking automatically. 🕒✨</p>
+            <div class="tags"><span class="tag">HTML</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/calculator/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Calculator</h2>
+            </div>
+            <p class="card-desc">This is a simple but advanced web based calculator where u can experience modern UI , responsiveness and many more.</p>
+            <div class="tags"><span class="tag">HTML</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/mentors/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Mentors</h2>
+            </div>
+            <p class="card-desc">https://programmingwithprince.github.io/mentors/</p>
+            <div class="tags"><span class="tag">JavaScript</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/Organize-files-into-folders/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Organize Files Into Folders</h2>
+            </div>
+            <p class="card-desc">Web-based developer utility and open-source project.</p>
+            <div class="tags"><span class="tag">JavaScript</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/location_distributor/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Location Distributor</h2>
+            </div>
+            <p class="card-desc">Web-based developer utility and open-source project.</p>
+            <div class="tags"><span class="tag">Python</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/Timer/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Timer</h2>
+            </div>
+            <p class="card-desc">A simple and intuitive timer application built with HTML, CSS, and JavaScript. Features include start, pause, reset, and custom time intervals. Responsive design for both desktop and mobile devices.</p>
+            <div class="tags"><span class="tag">CSS</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/website-landing-page/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">Website Landing Page</h2>
+            </div>
+            <p class="card-desc">This is a casual web template made up of only html and css. You can learn how to make a very simple website. It is also seo friendly. You can learn also how to do seo in your websites.</p>
+            <div class="tags"><span class="tag">HTML</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+        <a class="tool-card" href="https://tools.yourdomain.xyz/i-Coder/" target="_blank" rel="noopener">
+          <div>
+            <div class="card-header">
+              <h2 class="card-title">I Coder</h2>
+            </div>
+            <p class="card-desc">This is a responsive blog with floating authentication. </p>
+            <div class="tags"><span class="tag">CSS</span></div>
+          </div>
+          <div class="card-footer">
+            <span>Launch Tool</span> &rarr;
+          </div>
+        </a>
+
+    </main>
+
+    <footer>
+      <p>Maintained by <a href="https://github.com/programmingwithprince" style="color: var(--accent); text-decoration: none;">Prince Kumar</a> • Powered by GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script>
+    function filterTools() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.tool-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
