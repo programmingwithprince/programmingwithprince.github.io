@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const GITHUB_USERNAME = 'programmingwithprince';
-const BASE_SUBDOMAIN = 'https://tools.yourdomain.xyz'; // <-- Change this to your actual domain (e.g., https://tools.example.com)
+const BASE_SUBDOMAIN = 'https://tools.31415929.xyz'; // <-- Change this to your actual domain (e.g., https://tools.example.com)
 
 async function fetchPagesRepos() {
   console.log(`Scanning GitHub repositories for user: ${GITHUB_USERNAME}...`);
