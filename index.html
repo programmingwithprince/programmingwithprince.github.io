@@ -1,308 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prince's Developer Tools & Utility Directory</title>
-  <link rel="canonical" href="https://tools.31415929.xyz/" />
-<meta name="google-site-verification" content="hiax060TGiu_jXvGO9Sy0ZqwGiFnGoIlPYXX-NnfkrI" />
-  <meta name="description" content="Explore open-source utilities, web apps, formatters, and developer tools built and hosted on GitHub Pages.">
-  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+  <title>Prince's Developer Tools & Utility Directory ╱ tools.31415929.xyz</title>
+  <link rel="canonical" href="https://tools.31415929.xyz/" />
+  <meta name="google-site-verification" content="hiax060TGiu_jXvGO9Sy0ZqwGiFnGoIlPYXX-NnfkrI" />
+  <meta name="description" content="Explore open-source utilities, web apps, formatters, and developer tools built and hosted on GitHub Pages." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Prince (@programmingwithprince)" />
+
+  <!-- OpenGraph / Social Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tools.31415929.xyz/" />
+  <meta property="og:title" content="Prince's Developer Tools & Utility Directory" />
+  <meta property="og:description" content="Decentralized suite of lightweight, open-source developer utilities and web nodes." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/programmingwithprince" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@programmingwithprince" />
+  <meta name="twitter:creator" content="@programmingwithprince" />
+  <meta name="twitter:title" content="Prince's Developer Tools & Utility Directory" />
+  <meta name="twitter:description" content="Decentralized suite of lightweight, open-source developer utilities and web nodes." />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/programmingwithprince" />
+
+  <!-- Monospace & Sans Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: #111827;
-      --card-hover: #1f2937;
-      --border: #374151;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --tag-bg: #1e293b;
+      --bg: #07090e;
+      --panel: rgba(13, 19, 32, 0.75);
+      --card-hover: rgba(22, 32, 54, 0.85);
+      --border: rgba(56, 189, 248, 0.2);
+      --border-accent: rgba(56, 189, 248, 0.4);
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.25);
+      --lime: #00ff88;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --dim: #94a3b8;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
       color: var(--text);
-      line-height: 1.5;
-      padding: 3rem 1.5rem;
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
+    /* Terminal HUD Wrapper */
+    .dashboard-terminal {
+      width: 100%;
+      min-height: calc(100vh - 32px);
+      background: linear-gradient(180deg, rgba(14, 21, 36, 0.85) 0%, rgba(10, 14, 24, 0.95) 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(16px, 2vw, 28px);
+      box-shadow: 0 0 50px rgba(5, 12, 22, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      backdrop-filter: blur(10px);
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 2.5rem;
+    /* Top HUD Header */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    p.subtitle {
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .subdomain-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 6px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 3px;
+      color: var(--cyan);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      text-decoration: none;
+      vertical-align: middle;
+      transition: all 0.2s ease;
+    }
+
+    .subdomain-tag:hover {
+      background: var(--cyan);
+      color: #07090e;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
       color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
+    }
+
+    .badge-live {
+      color: var(--lime);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-live::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 6px var(--lime);
+    }
+
+    /* Search & Filter Telemetry Panel */
+    .filter-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .search-box {
-      max-width: 480px;
-      margin: 0 auto;
+      flex: 1;
+      min-width: 260px;
+      position: relative;
     }
 
-    .search-box input {
+    .search-input {
       width: 100%;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
+      background: #090e17;
       border: 1px solid var(--border);
-      background: var(--card-bg);
-      color: var(--text);
-      font-size: 1rem;
+      border-radius: 6px;
+      padding: 9px 14px 9px 34px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 13px;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .search-box input:focus {
-      border-color: var(--accent);
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-glow);
     }
 
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Grid of Tools */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      flex: 1;
+      align-content: start;
     }
 
     .tool-card {
-      background: var(--card-bg);
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 1.5rem;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-decoration: none;
       color: inherit;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      position: relative;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
     }
 
     .tool-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
       background: var(--card-hover);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 0.75rem;
+      margin-bottom: 8px;
     }
 
     .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
     }
 
     .card-desc {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
+      color: var(--dim);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 14px;
       flex-grow: 1;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
+      gap: 6px;
+      margin-bottom: 14px;
     }
 
     .tag {
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      font-size: 0.75rem;
-      color: var(--muted);
-      padding: 0.2rem 0.5rem;
+      background: rgba(14, 21, 36, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--cyan);
+      padding: 3px 7px;
       border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .card-footer {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cyan);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* Branded Footer */
+    .terminal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(56, 189, 248, 0.15);
+      font-family: var(--font-mono);
+      font-size: 11px;
       color: var(--muted);
-      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-link {
+      color: var(--cyan);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-author a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-author a:hover {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 8px; }
+      .dashboard-terminal { padding: 12px; border-radius: 10px; }
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .terminal-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Developer Utilities & Tools</h1>
-      <p class="subtitle">A live hub of open-source utilities and tools deployed on tools.31415929.xyz .</p>
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search utilities by name or keyword..." oninput="filterTools()">
+
+  <div class="dashboard-terminal">
+    <!-- HUD Header -->
+    <header class="top-bar">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">
+            Developer Toolkit
+            <a href="https://tools.31415929.xyz" class="subdomain-tag">tools.31415929.xyz</a>
+          </div>
+          <div class="brand-sub">Central Systems & Utility Directory</div>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <span class="badge-live">HUB ONLINE</span>
+        <span>•</span>
+        <span id="utc-clock">UTC: 00:00:00</span>
       </div>
     </header>
 
+    <!-- Search Controls -->
+    <section class="filter-panel">
+      <div class="search-box">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search utilities by keyword or tag..." oninput="filterTools()" />
+      </div>
+      <div class="search-count" id="searchCount">INITIALIZING TELEMETRY...</div>
+    </section>
+
+    <!-- Main Grid -->
     <main class="tools-grid" id="toolList">
-      
-        <a class="tool-card" href="https://tools.31415929.xyz/Keep-my-Screen-Wake-Up/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Keep My Screen Wake Up</h2>
-            </div>
-            <p class="card-desc">Do you get frustrated when your device screen turns off while you're downloading games, reading a long PDF, or watching static content? Worry no more! Keep My Screen Awake is a simple web app designed to prevent your screen from dimming or locking automatically. 🕒✨</p>
-            <div class="tags"><span class="tag">HTML</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/File-Sharing/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">File Sharing</h2>
-            </div>
-            <p class="card-desc">File Sharing project! This repository provides a simple and efficient way to share files over a network using Flask. Whether you're working on a team project or need to transfer files between devices, this tool has got you covered.</p>
-            <div class="tags"><span class="tag">CSS</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/calculator/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Calculator</h2>
-            </div>
-            <p class="card-desc">This is a simple but advanced web based calculator where u can experience modern UI , responsiveness and many more.</p>
-            <div class="tags"><span class="tag">HTML</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/mentors/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Mentors</h2>
-            </div>
-            <p class="card-desc">https://programmingwithprince.github.io/mentors/</p>
-            <div class="tags"><span class="tag">JavaScript</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/Organize-files-into-folders/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Organize Files Into Folders</h2>
-            </div>
-            <p class="card-desc">Web-based developer utility and open-source project.</p>
-            <div class="tags"><span class="tag">JavaScript</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/location_distributor/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Location Distributor</h2>
-            </div>
-            <p class="card-desc">Web-based developer utility and open-source project.</p>
-            <div class="tags"><span class="tag">Python</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/website-landing-page/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">Website Landing Page</h2>
-            </div>
-            <p class="card-desc">This is a casual web template made up of only html and css. You can learn how to make a very simple website. It is also seo friendly. You can learn also how to do seo in your websites.</p>
-            <div class="tags"><span class="tag">HTML</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
-        <a class="tool-card" href="https://tools.31415929.xyz/i-Coder/" target="_blank" rel="noopener">
-          <div>
-            <div class="card-header">
-              <h2 class="card-title">I Coder</h2>
-            </div>
-            <p class="card-desc">This is a responsive blog with floating authentication. </p>
-            <div class="tags"><span class="tag">CSS</span></div>
-          </div>
-          <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
-          </div>
-        </a>
-
+      <!-- STATIC_CONTENT_PLACEHOLDER -->
     </main>
 
-    <footer>
-      <p>Maintained by <a href="https://github.com/programmingwithprince" style="color: var(--accent); text-decoration: none;">programmingwithprince</a> • Powered by GitHub Pages</p>
+    <!-- Branded Terminal Footer -->
+    <footer class="terminal-footer">
+      <div class="footer-links">
+        <span>GATEWAY: <a href="https://tools.31415929.xyz" class="footer-link">tools.31415929.xyz</a></span>
+        <span>•</span>
+        <span>ORIGIN: <a href="https://31415929.xyz" class="footer-link">31415929.xyz</a></span>
+      </div>
+
+      <div class="footer-author">
+        ENGINEERED BY <a href="https://github.com/programmingwithprince" target="_blank" rel="noopener">PRINCE (@programmingwithprince)</a>
+      </div>
+
+      <div>SYS_ARCH: VANILLA / CDN</div>
     </footer>
   </div>
 
   <script>
+    // utc telemetry clock
+    function tickClock() {
+      const el = document.getElementById("utc-clock");
+      if (el) {
+        const parts = new Date().toUTCString().split(' ');
+        el.textContent = `UTC: ${parts[4] || '00:00:00'}`;
+      }
+    }
+    setInterval(tickClock, 1000);
+    tickClock();
+
+    // client side filter
     function filterTools() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
       const cards = document.querySelectorAll('.tool-card');
+      let visible = 0;
+
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(q) ? 'flex' : 'none';
+        const matches = text.includes(q);
+        card.style.display = matches ? 'flex' : 'none';
+        if (matches) visible++;
       });
+
+      const countEl = document.getElementById('searchCount');
+      if (countEl) {
+        countEl.textContent = `[SHOWING ${visible} OF ${cards.length} MODULES]`;
+      }
     }
+
+    // initial count setup on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.tool-card');
+      const countEl = document.getElementById('searchCount');
+      if (countEl) {
+        countEl.textContent = `[INDEXED ${cards.length} ACTIVE MODULES]`;
+      }
+    });
   </script>
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Prince's Developer Tools & Utility Directory",
-  "url": "https://tools.31415929.xyz/",
-  "description": "Directory of lightweight, open-source developer utilities and web tools.",
-  "creator": {
-    "@type": "Person",
-    "name": "Prince",
-    "url": "https://github.com/programmingwithprince"
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Prince's Developer Tools & Utility Directory",
+    "url": "https://tools.31415929.xyz/",
+    "description": "Directory of lightweight, open-source developer utilities and web tools.",
+    "creator": {
+      "@type": "Person",
+      "name": "Prince",
+      "url": "https://github.com/programmingwithprince"
+    }
   }
-}
-</script>
+  </script>
 </body>
 </html>
