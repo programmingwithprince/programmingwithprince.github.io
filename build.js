@@ -1,10 +1,13 @@
+// dev note: automated pages builder for tools.31415929.xyz
+// fetches public repos with has_pages=true and compiles template.html -> index.html
+
 const fs = require('fs');
 
 const GITHUB_USERNAME = 'programmingwithprince';
-const BASE_SUBDOMAIN = 'https://tools.31415929.xyz'; // <-- Change this to your actual domain (e.g., https://tools.example.com)
+const BASE_SUBDOMAIN = 'https://tools.31415929.xyz';
 
 async function fetchPagesRepos() {
-  console.log(`Scanning GitHub repositories for user: ${GITHUB_USERNAME}...`);
+  console.log(`[SYS] Scanning repositories for @${GITHUB_USERNAME}...`);
   const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`;
   
   const headers = {
@@ -12,6 +15,7 @@ async function fetchPagesRepos() {
     'Accept': 'application/vnd.github+json'
   };
 
+  // Bump rate limits in CI if GITHUB_TOKEN exists
   if (process.env.GITHUB_TOKEN) {
     headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
   }
@@ -22,16 +26,16 @@ async function fetchPagesRepos() {
   }
   
   const repos = await res.json();
-  console.log(`Total public repos fetched: ${repos.length}`);
+  console.log(`[SYS] Total repos received: ${repos.length}`);
 
-  // Log which repos have Pages turned on
+  // Filter only repos with pages active, skip the username.github.io root repo
   const pagesRepos = repos.filter(repo => {
     const isPages = Boolean(repo.has_pages);
     const isSelf = repo.name.toLowerCase() === `${GITHUB_USERNAME}.github.io`.toLowerCase();
     return isPages && !isSelf;
   });
 
-  console.log(`Repos with GitHub Pages active (${pagesRepos.length}):`, pagesRepos.map(r => r.name));
+  console.log(`[SYS] Active Pages nodes detected (${pagesRepos.length}):`, pagesRepos.map(r => r.name));
   return pagesRepos;
 }
 
@@ -48,18 +52,19 @@ async function build() {
     let cardsHtml = '';
 
     if (repos.length === 0) {
-      console.warn('⚠️ Warning: No repositories with has_pages=true were found.');
+      console.warn('⚠️ No repositories with has_pages=true found.');
       cardsHtml = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--muted);">
-        <p>No tools currently detected with GitHub Pages enabled.</p>
-        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Turn on GitHub Pages in your repo settings to list them here automatically.</p>
+      <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--muted); font-family: var(--font-mono); font-size: 13px;">
+        <p>[WARN] No active GitHub Pages nodes detected on this registry.</p>
+        <p style="margin-top: 6px; font-size: 11px;">Enable GitHub Pages in repository settings to index new tools automatically.</p>
       </div>`;
     } else {
       for (const repo of repos) {
         const title = cleanTitle(repo.name);
-        const desc = repo.description || 'Web-based developer utility and open-source project.';
+        const desc = repo.description || 'Web-based developer utility and open-source project node.';
         const toolUrl = `${BASE_SUBDOMAIN}/${repo.name}/`;
         
+        // Grab topics or fallback to repo language
         const tags = (repo.topics && repo.topics.length > 0) 
           ? repo.topics 
           : [repo.language].filter(Boolean);
@@ -78,21 +83,22 @@ async function build() {
             <div class="tags">${tagsHtml}</div>
           </div>
           <div class="card-footer">
-            <span>Launch Tool</span> &rarr;
+            <span class="launch-btn">[LAUNCH MODULE]</span>
+            <span>&rarr;</span>
           </div>
         </a>\n`;
       }
     }
 
     if (!fs.existsSync('./template.html')) {
-      throw new Error('template.html not found in the root directory!');
+      throw new Error('template.html not found in root directory.');
     }
 
     const template = fs.readFileSync('./template.html', 'utf8');
     const finalHtml = template.replace('<!-- STATIC_CONTENT_PLACEHOLDER -->', cardsHtml);
 
     fs.writeFileSync('./index.html', finalHtml);
-    console.log('✅ Successfully wrote to index.html!');
+    console.log('✅ Successfully compiled and baked index.html!');
   } catch (err) {
     console.error('❌ Build failed:', err);
     process.exit(1);
