@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- todo: test if scalable=no causes issues on old safari later -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Utilities & Tools</title>
-  <meta name="title" content="Prince // 31415929.xyz — Research & Systems Portal" />
-  <meta name="description" content="Directory of lightweight, open-source developer utilities and web tools of Prince (@programmingwithprince)." />
-  <meta name="keywords" content="Prince, programmingwithprince, 31415929, 31415929.xyz, software engineer, tools,utilities, height-percentile" />
+  <title>Developer Utilities, Statistical Calculators & Systems Hub | 31415929.xyz</title>
+  <meta name="title" content="Developer Utilities, Statistical Calculators & Systems Hub | 31415929.xyz" />
+  <meta name="description" content="Central directory of lightweight, open-source developer utilities, demographic percentile calculators, wake-lock monitors, and filesystem scripts maintained by Prince (@programmingwithprince)." />
+  <meta name="keywords" content="Prince, programmingwithprince, 31415929, 31415929.xyz, software engineer, developer tools, web utilities, height percentile calculator, screen wake lock, flask file transfer, file organizer script" />
   <meta name="author" content="Prince" />
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/programmingwithprince/31415929.xyz/refs/heads/main/badge-clipped.png">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://31415929.xyz/tools/" />
 
-  <!-- og tags (preview cards) -->
-  <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://31415929.xyz/" />
-  <meta property="og:title" content="Prince // 31415929.xyz" />
-  <meta property="og:description" content="Central engineering node and autonomous subdomain gateway of @programmingwithprince." />
+  <!-- Open Graph / Meta Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://31415929.xyz/tools/" />
+  <meta property="og:title" content="Developer Utilities, Statistical Calculators & Systems Hub | 31415929.xyz" />
+  <meta property="og:description" content="Explore client-side developer utilities, Gaussian percentile calculators, screen lock controllers, and network scripts engineered for zero data collection and instant execution." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/programmingwithprince" />
 
+  <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://31415929.xyz/" />
-  <meta name="twitter:title" content="Prince // 31415929.xyz" />
-  <meta name="twitter:description" content="Central engineering node and autonomous subdomain gateway of @programmingwithprince." />
+  <meta name="twitter:url" content="https://31415929.xyz/tools/" />
+  <meta name="twitter:title" content="Developer Utilities, Statistical Calculators & Systems Hub | 31415929.xyz" />
+  <meta name="twitter:description" content="Explore client-side developer utilities, Gaussian percentile calculators, screen lock controllers, and network scripts engineered for zero data collection and instant execution." />
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/programmingwithprince" />
 
-  <!-- structured data for google crawler -->
+  <!-- Structured Data: CollectionPage, Person, and FAQPage Schema for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,23 +41,75 @@
         "image": "https://avatars.githubusercontent.com/programmingwithprince",
         "sameAs": [
           "https://github.com/programmingwithprince",
-          "https://github.com/sponsors/programmingwithprince",
-          "https://tools.31415929.xyz"
+          "https://github.com/sponsors/programmingwithprince"
         ],
         "jobTitle": "Software Developer & Systems Engineer"
       },
       {
-        "@type": "WebSite",
-        "@id": "https://31415929.xyz/#website",
-        "url": "https://31415929.xyz",
-        "name": "31415929.xyz",
-        "publisher": { "@id": "https://31415929.xyz/#person" }
+        "@type": "CollectionPage",
+        "@id": "https://31415929.xyz/tools/#webpage",
+        "url": "https://31415929.xyz/tools/",
+        "name": "Developer Utilities and Web Systems Hub",
+        "description": "Comprehensive index of privacy-focused developer utilities, statistical analyzers, and automation scripts.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://31415929.xyz/#website",
+          "url": "https://31415929.xyz",
+          "name": "31415929.xyz",
+          "publisher": { "@id": "https://31415929.xyz/#person" }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://31415929.xyz/tools/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are the utilities hosted on 31415929.xyz free and open source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All web applications, statistical calculators, and automation scripts published across this portal are 100% free, open-source, and free of paywalls or subscription barriers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this portal collect, track, or sell user telemetry data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All calculation algorithms and screen tools execute strictly client-side inside the user browser session. No form values, biometrics, or computational outputs are logged or stored."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Height Percentile calculation engine determine percentiles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The utility calculates exact Z-scores and cumulative statistical percentiles using standard normal Gaussian distribution functions benchmarked against validated population data from public health agencies and the World Health Organization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Screen Wake Lock utility prevent devices from dimming?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The application interfaces directly with the native W3C Screen Wake Lock API in modern browsers, acquiring a background sentinel lock that tells the operating system power manager to keep the display active."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I run the Python file transfer and file classification scripts locally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Companion backend utilities like the Flask local network file distributor and folder classification automation scripts are available via open GitHub repositories for local deployment."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 
-  <!-- font imports -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -68,7 +122,7 @@
 
   <main class="terminal-container">
     
-    <!-- header stuff -->
+    <!-- System Header -->
     <header class="header-bar">
       <div class="brand-mark">
         <div class="pi-badge">&pi;</div>
@@ -81,119 +135,223 @@
         <span class="pulse-dot"></span>
         <span id="system-time">UTC: --:--:--</span>
         <span>•</span>
-        <span style="color: var(--cyan-bright);">NODE ACTIVE</span>
+        <span style="color: var(--cyan-bright, #38bdf8);">NODE ACTIVE</span>
       </div>
     </header>
 
-    
-
-
-
-
-
-
-
-
-
-
-      <div class="cluster-grid">
+    <!-- Utility Cluster Grid -->
+    <section class="cluster-grid" aria-label="Available Utilities">
      
-        <a href="https://31415929.xyz/tools/height-percentile/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div>
-            <div class="cluster-top">
-              <span class="cluster-domain">Height Percentile</span>
-              <span class="cluster-badge">LIVE UTILITY</span>
-            </div>
-            <p class="cluster-desc">
-              Calculate your exact height percentile across countries and worldwide populations. Compare normal distribution curves, global height rankings, and download verified telemetry visual cards.
+      <a href="https://31415929.xyz/tools/height-percentile/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <div>
+          <div class="cluster-top">
+            <span class="cluster-domain">Height Percentile</span>
+            <span class="cluster-badge">LIVE UTILITY</span>
+          </div>
+          <p class="cluster-desc">
+            Calculate exact statistical height percentiles across global demographics and national cohorts. Compare normal distribution curves, view international rank metrics, and export verified telemetry visual cards.
+          </p>
+        </div>
+        <div class="cluster-action">
+          ENTER PARTITION &rarr;
+        </div>
+      </a>
+
+      <a href="https://31415929.xyz/tools/Keep-my-Screen-Wake-Up/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <div>
+          <div class="cluster-top">
+            <span class="cluster-domain">Keep Screen Awake</span>
+            <span class="cluster-badge">LIVE UTILITY</span>
+          </div>
+          <p class="cluster-desc">
+            A zero-overhead web utility that interfaces with the Screen Wake Lock API to prevent system dimming, idle timeouts, and automatic display sleeping, bundled with a high-contrast digital readout.
+          </p>
+        </div>
+        <div class="cluster-action">
+          ENTER PARTITION &rarr;
+        </div>
+      </a>
+
+      <a href="https://31415929.xyz/tools/File-Sharing/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <div>
+          <div class="cluster-top">
+            <span class="cluster-domain">Local File Sharing</span>
+            <span class="cluster-badge">LIVE UTILITY</span>
+          </div>
+          <p class="cluster-desc">
+            Lightweight peer-to-peer and local network file transfer architecture powered by Flask. Enables rapid direct file exchanges across workstation clusters and heterogeneous client hardware without external cloud latency.
+          </p>
+        </div>
+        <div class="cluster-action">
+          ENTER PARTITION &rarr;
+        </div>
+      </a>
+
+      <a href="https://31415929.xyz/tools/calculator/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <div>
+          <div class="cluster-top">
+            <span class="cluster-domain">Precision Calculator</span>
+            <span class="cluster-badge">LIVE UTILITY</span>
+          </div>
+          <p class="cluster-desc">
+            Responsive, tactile mathematical evaluator optimized for touch surfaces and mobile browser engines, offering immediate floating-point evaluation without payload bloat.
+          </p>
+        </div>
+        <div class="cluster-action">
+          ENTER PARTITION &rarr;
+        </div>
+      </a>
+
+      <a href="https://31415929.xyz/tools/Organize-files-into-folders/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <div>
+          <div class="cluster-top">
+            <span class="cluster-domain">File Classifier & Organizer</span>
+            <span class="cluster-badge">LIVE UTILITY</span>
+          </div>
+          <p class="cluster-desc">
+            Automated filesystem hygiene script to catalog, categorize, and route unorganized directory files into structured subfolders matching their respective MIME signatures and extension patterns.
+          </p>
+        </div>
+        <div class="cluster-action">
+          ENTER PARTITION &rarr;
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Comprehensive Technical Documentation Section (Indexable SEO Text) -->
+    <article class="portal-documentation" style="margin-top: 3.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2.5rem; color: #cbd5e1; line-height: 1.8; font-size: 0.95rem;">
+      
+      <header style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.5rem; color: #f8fafc; font-family: 'JetBrains Mono', monospace; margin-bottom: 0.75rem;">// SYSTEM ARCHITECTURE & PURPOSE</h2>
+        <p style="color: #94a3b8; font-size: 1rem;">
+          The <strong>31415929.XYZ</strong> portal functions as a decentralized directory of standalone, purposeful web software and engineering utilities. Designed and engineered by Prince (<a href="https://github.com/programmingwithprince" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none;">@programmingwithprince</a>), each utility on this domain is built with a singular design principle: minimal resource footprints, immediate responsiveness, and zero non-essential telemetry.
+        </p>
+        <p style="color: #94a3b8; font-size: 1rem; margin-top: 1rem;">
+          Modern web environments are frequently encumbered by multi-megabyte bundle dependencies, commercial ad network tracking scripts, intrusive telemetry beacons, and forced account creation workflows. The utilities indexed across the 31415929.XYZ cluster reject this architecture. Every software partition hosted under this domain operates under strict systems engineering standards: minimal payload overhead, unhindered browser rendering performance, and zero retention of client payloads.
+        </p>
+      </header>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; color: #38bdf8; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace;">1. Client-Side Determinism & Cryptographic Privacy</h3>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin: 0;">
+            All browser-based utilities hosted in this directory execute mathematical transformations directly inside the client engine via ECMAScript standard runtimes and W3C web specifications. When users compute physiological demographics in the Height Percentile analyzer or maintain operating system wake routines, zero input parameters leave the client memory stack. No telemetry is logged, no analytics databases receive user attributes, and computational jobs run isolated inside your local thread.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; color: #38bdf8; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace;">2. Zero Dependency Bloat & High Core Web Vitals</h3>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin: 0;">
+            Standard web utilities often require bloated JavaScript frameworks to perform elementary functions. The web applications in this repository leverage vanilla HTML5, modern CSS custom properties, and native asynchronous JavaScript APIs. This results in instant First Contentful Paint (FCP), negligible Largest Contentful Paint (LCP) delays, and virtually zero Cumulative Layout Shift (CLS). The tools are accessible even over constrained cellular data connections, legacy hardware, and terminal-embedded browser environments.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; color: #38bdf8; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace;">3. System-Level Hardware & API Interoperability</h3>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin: 0;">
+            Rather than relying on third-party polyfills, these tools integrate directly with modern hardware abstraction layers provided by browser engines. The Screen Wake lock module commands hardware display states through the standard Screen Wake Lock API, bypassing third-party background workarounds. Meanwhile, network utilities bridge desktop operations to local micro-services powered by Python and Flask, delivering seamless cross-platform utility without external cloud middle-tiers.
+          </p>
+        </div>
+      </div>
+
+      <section style="margin-bottom: 3rem;">
+        <h3 style="font-size: 1.3rem; color: #f8fafc; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.25rem;">// DETAILED UTILITY DIRECTORY & ARCHITECTURAL BREAKDOWN</h3>
+        
+        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #38bdf8;">
+          <h4 style="font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.4rem;">1. Global Height Percentile & Demographic Distribution Engine</h4>
+          <p style="color: #94a3b8; margin: 0;">
+            The Height Percentile partition is a quantitative demographic analysis tool designed to calculate exactly where an individual's vertical stature falls across both global and national population distributions. Utilizing empirical datasets aggregated from international health databases, national public health surveys (such as CDC NHANES datasets and WHO anthropometric registries), the system maps raw height measurements onto continuous Gaussian bell curves (normal distribution model). The algorithm factors in biological sex and country of residency to calculate accurate Z-scores and exact cumulative percentile ranks. Users can visualize relative distribution spreads, compare standard deviations, and generate downloadable telemetry data cards summarizing their statistical standing.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #38bdf8;">
+          <h4 style="font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.4rem;">2. Web Screen Wake Lock & Ambient Digital Console</h4>
+          <p style="color: #94a3b8; margin: 0;">
+            Modern mobile and desktop operating systems automatically dim displays and invoke sleep modes to preserve battery longevity. While effective for routine device usage, this behavior disrupts hands-free workflows such as reading source code, reviewing terminal outputs, following multi-stage laboratory procedures, or referencing cooking instructions. The Keep Screen Awake partition activates the native W3C Screen Wake Lock API directly within the browser, acquiring a persistent sentinel lock that commands the OS power manager to suppress screen dimming and lock cycles. It incorporates a low-emission, high-contrast digital clock readout with zero battery overhead, eliminating the need to install native binary background utilities.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #38bdf8;">
+          <h4 style="font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.4rem;">3. Flask-Powered Local Network File Distribution System</h4>
+          <p style="color: #94a3b8; margin: 0;">
+            Transferring multi-gigabyte build artifacts, disk images, or documents between disparate devices on the same local area network (LAN) often involves cumbersome workarounds—uploading to third-party commercial cloud storage, configuring complex network shares (Samba/NFS), or transferring via USB flash media. The File Sharing partition provides a lightweight Python Flask server blueprint that spins up an instantaneous, zero-configuration HTTP file distribution node. With a single command-line execution, developers and system administrators can broadcast a secure local web interface across their subnet, enabling fast bidirectional file transfers across iOS, Android, Linux, macOS, and Windows hardware without internet transit costs.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #38bdf8;">
+          <h4 style="font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.4rem;">4. Mobile-Optimized Arithmetic & Precision Evaluation Console</h4>
+          <p style="color: #94a3b8; margin: 0;">
+            Standard built-in desktop and mobile calculator applications can suffer from excessive animations, unnecessary interface complexity, and sluggish wake latencies. The Precision Calculator is an optimized mathematical evaluation interface designed specifically for rapid arithmetic on mobile touchscreens and desktop viewports alike. It uses native precision parsing to eliminate common floating-point rounding quirks while providing an instantaneous tactile keyboard layout that responds without input lag.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #38bdf8;">
+          <h4 style="font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.4rem;">5. Automated Filesystem Extension Classifier & Batch Sorting Daemon</h4>
+          <p style="color: #94a3b8; margin: 0;">
+            Unorganized root directories, download folders, and desktop environments inevitably become cluttered with heterogeneous document, image, and binary formats. The Organize Files Into Folders module is an automated batch utility script engineered to sanitize disorganized storage directories. By analyzing incoming file headers and file extensions (e.g., categorizing .jpg, .png, and .webp into visual media structures, and .pdf, .docx, and .txt into document branches), the script automates filesystem organization with deterministic rule-matching and prevents manual file-management fatigue.
+          </p>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions (FAQ) Section -->
+      <section class="portal-faq" style="margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.3rem; color: #f8fafc; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.25rem;">// FREQUENTLY ASKED QUESTIONS (FAQ)</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">Are the utilities hosted on 31415929.xyz completely free to use?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              Yes. All utilities, algorithmic calculators, and automation scripts indexed across this portal are 100% free, open-source, and unrestricted. There are no paywalls, mandatory user subscriptions, premium tiers, or hidden features.
             </p>
-          </div>
-          <div class="cluster-action">
-            ENTER PARTITION &rarr;
-          </div>
-        </a>
+          </details>
 
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">Does this website store, collect, or share personal user data?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              No. Privacy is a foundational architectural requirement of this domain. All tools operate entirely client-side within your browser or run locally on your self-hosted hardware. No personal identification data, computational inputs, telemetry packets, or browser activity records are transmitted to or stored on remote tracking databases.
+            </p>
+          </details>
 
-     
-        <a href="https://31415929.xyz/tools/Keep-my-Screen-Wake-Up/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div>
-            <div class="cluster-top">
-              <span class="cluster-domain">Keep Screen Wake Up</span>
-              <span class="cluster-badge">LIVE UTILITY</span>
-            </div>
-            <p class="cluster-desc">
-               Keep My Screen Awake is a simple web app designed to prevent your screen from dimming or locking automatically. 🕒✨ with the simple minimlast digital clock on black background.
-          </div>
-          <div class="cluster-action">
-            ENTER PARTITION &rarr;
-          </div>
-        </a>
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">How accurate is the Height Percentile calculation engine?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              The Height Percentile utility computes results using validated mathematical algorithms based on standard Gaussian normal distributions, applying official demographic mean values and standard deviations sourced from the World Health Organization (WHO), national statistical bureaus, and clinical health surveys. While statistically rigorous for population analysis, results are provided strictly for educational and informational reference.
+            </p>
+          </details>
 
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">How does the Keep Screen Awake utility prevent my monitor from sleeping?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              The utility leverages the standardized W3C Screen Wake Lock API supported across modern web browsers (Chrome, Edge, Safari, Firefox). When toggled on, your browser communicates with your operating system's power management controller to prevent sleep timers and screen timeout triggers from executing, keeping your screen illuminated until you release the lock or close the browser tab.
+            </p>
+          </details>
 
-<a href="https://31415929.xyz/tools/File-Sharing/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div>
-            <div class="cluster-top">
-              <span class="cluster-domain">File Sharing</span>
-              <span class="cluster-badge">LIVE UTILITY</span>
-            </div>
-            <p class="cluster-desc">
-               File Sharing project! This repository provides a simple and efficient way to share files over a network using Flask. Whether you're working on a team project or need to transfer files between devices, this tool has got you covered.   </div>
-          <div class="cluster-action">
-            ENTER PARTITION &rarr;
-          </div>
-        </a>
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">Can I run the Python file sharing and file organizing scripts on my own machine?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              Yes. All automation scripts, including the Flask network file sharing node and file extension organizing scripts, are hosted openly on GitHub under Prince's repository directory (@programmingwithprince). You can clone, audit, fork, and execute these scripts locally within your terminal environment.
+            </p>
+          </details>
 
+          <details style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 1rem;">
+            <summary style="font-weight: 600; color: #f1f5f9; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;">What should I do if a utility tool fails to load or behaves unexpectedly?</summary>
+            <p style="margin-top: 0.75rem; color: #94a3b8; font-size: 0.92rem; margin-bottom: 0;">
+              Because these utilities leverage modern browser APIs, ensure that you are accessing the portal from an up-to-date web browser version. If an issue persists or you encounter a rendering bug, you can report an issue directly via the official GitHub repository or contact the maintainer directly through the contact credentials listed in the portal footer.
+            </p>
+          </details>
+        </div>
+      </section>
 
+    </article>
 
-        <a href="https://31415929.xyz/tools/calculator/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div>
-            <div class="cluster-top">
-              <span class="cluster-domain">Calculator</span>
-              <span class="cluster-badge">LIVE UTILITY</span>
-            </div>
-            <p class="cluster-desc">
-                Just a Calculator for best experience it in mobile device </div>
-          <div class="cluster-action">
-            ENTER PARTITION &rarr;
-          </div>
-        </a>
-
-<a href="https://31415929.xyz/tools/Organize-files-into-folders/" class="cluster-card" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div>
-            <div class="cluster-top">
-              <span class="cluster-domain">Organize Files Into Folders</span>
-              <span class="cluster-badge">LIVE UTILITY</span>
-            </div>
-            <p class="cluster-desc">
-                You can use this script to organize your files into their specific folders acc to their file extensions like .jpg save in jpg/ folder.  </div>
-          <div class="cluster-action">
-            ENTER PARTITION &rarr;
-          </div>
-        </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-    <!-- bottom contact buttons -->
+    <!-- Bottom Contact & Action Buttons -->
     <section class="links-row">
       <a href="https://github.com/programmingwithprince" target="_blank" rel="noopener noreferrer" class="action-pill pill-gh">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub Profile
       </a>
 
-      <!-- change to contact@31415929.xyz when domain email is ready -->
       <a href="mailto:programmingwithprince1@gmail.com?subject=[Sponsorship%20Inquiry]%20Project%20Support&body=Hi%20Prince,%0D%0A%0D%0AI%20would%20like%20to%20support/sponsor%20your%20development%20work.%20Details:%0D%0A" class="action-pill pill-sponsor">
         &hearts; Sponsor Engineering
       </a>
@@ -203,7 +361,7 @@
       </a>
     </section>
 
-    <!-- footer -->
+    <!-- System Footer -->
     <footer>
       <div>SYS_ARCH // GITHUB PAGES HOSTED // ROOT_ID: 31415929.XYZ</div>
       <div class="footer-links">
